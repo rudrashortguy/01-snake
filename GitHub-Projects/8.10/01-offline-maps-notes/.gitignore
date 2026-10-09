@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+/package-lock.json
+/yarn.lock
+/pnpm-lock.yaml
+
+# Output
+dist
+dist-ssr
+*.local
+.vscode/*
+!.vscode/extensions.json
+
+# Tests
+coverage
+.cypress
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+*.swp
+*.swo
+
+# Build artifacts (except dist)
+public/*.png
+public/*.ico
+public/*.svg
