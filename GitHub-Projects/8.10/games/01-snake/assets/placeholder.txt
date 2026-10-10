@@ -1,0 +1,6 @@
+# Assets directory placeholder
+
+Screenshots will be added here:
+- screenshot1.png - Main gameplay
+- screenshot2.png - Mobile controls
+- screenshot3.png - Power-up action

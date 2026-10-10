@@ -1,0 +1,30 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "Classic Snake game with multiple game modes, power-ups, and mobile support — built with vanilla JS Canvas.",
+  "type": "module",
+  "main": "src/game.js",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "test": "node --test tests/",
+    "test:coverage": "node --test --experimental-test-coverage tests/",
+    "lint": "npx eslint src/ tests/"
+  },
+  "keywords": [
+    "snake",
+    "game",
+    "canvas",
+    "javascript",
+    "vanilla-js"
+  ],
+  "author": "Rudra Suryavanshi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rudra-suryavanshi/01-snake.git"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "serve": "^14.2.0"
+  }
+}

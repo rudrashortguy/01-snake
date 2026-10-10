@@ -1,0 +1,266 @@
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --accent: #e94560;
+  --accent-light: #ff6b6b;
+  --text-primary: #eee;
+  --text-secondary: #aaa;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --snake-head: #4ade80;
+  --snake-body: #22c55e;
+  --food: #ef4444;
+  --powerup-speed: #f59e0b;
+  --powerup-slow: #3b82f6;
+  --powerup-double: #a855f7;
+  --powerup-invincible: #fbbf24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Press Start 2P', monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 440px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.title {
+  font-size: 20px;
+  color: var(--accent);
+  text-shadow: 2px 2px 0 var(--bg-secondary);
+}
+
+.score-board {
+  display: flex;
+  gap: 16px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-label {
+  font-size: 8px;
+  color: var(--text-secondary);
+}
+
+.score-value {
+  font-size: 14px;
+  color: var(--accent-light);
+}
+
+.game-info {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-tag, .powerup-tag {
+  font-size: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--bg-card);
+}
+
+.powerup-tag {
+  animation: pulse 0.5s infinite alternate;
+}
+
+.powerup-tag.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+canvas {
+  border: 2px solid var(--bg-card);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  image-rendering: pixelated;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overlay-content h2 {
+  font-size: 28px;
+  color: var(--accent);
+}
+
+.overlay-content p {
+  font-size: 10px;
+  color: var(--text-secondary);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.final-score {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.mode-selector {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mode-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+.mobile-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.d-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dpad-row {
+  display: flex;
+  gap: 4px;
+}
+
+.dpad-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  width: 48px;
+  height: 48px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dpad-btn:active {
+  background: var(--accent);
+}
+
+.pause-btn {
+  font-size: 20px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pause-btn:active {
+  background: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .mobile-controls {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 16px;
+  }
+
+  .score-value {
+    font-size: 12px;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}

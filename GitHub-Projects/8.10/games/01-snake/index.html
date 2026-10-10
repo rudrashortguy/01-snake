@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+    <header class="header">
+      <h1 class="title">SNAKE</h1>
+      <div class="score-board">
+        <div class="score-item">
+          <span class="score-label">Score</span>
+          <span id="score" class="score-value">0</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">Best</span>
+          <span id="best-score" class="score-value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="game-info">
+      <span id="mode-display" class="mode-tag">Classic</span>
+      <span id="powerup-display" class="powerup-tag hidden"></span>
+    </div>
+
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <h2 id="overlay-title">SNAKE</h2>
+        <p id="overlay-subtitle">Press Space or Tap to Start</p>
+        <div id="final-score" class="final-score hidden"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="mode-selector">
+        <button class="mode-btn active" data-mode="classic">Classic</button>
+        <button class="mode-btn" data-mode="timeattack">Time Attack</button>
+        <button class="mode-btn" data-mode="survival">Survival</button>
+      </div>
+      <div class="mobile-controls">
+        <div class="d-pad">
+          <button class="dpad-btn" data-dir="up">↑</button>
+          <div class="dpad-row">
+            <button class="dpad-btn" data-dir="left">←</button>
+            <button class="dpad-btn" data-dir="right">→</button>
+          </div>
+          <button class="dpad-btn" data-dir="down">↓</button>
+        </div>
+        <button id="pauseBtn" class="pause-btn">⏸</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/game.js"></script>
+</body>
+</html>
